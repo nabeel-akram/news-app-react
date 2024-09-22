@@ -15,7 +15,7 @@ This script is configured to run mock server and the react app concurrently
 - Mock API will run at http://localhost:5000
 - React APP will run at http://localhost:3000
 
-## Mock Express Server
+### Mock Express Server
 
 - Consumes data.json
 - Handles `GET` method to return paginated news data
