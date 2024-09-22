@@ -1,6 +1,7 @@
+import { Empty } from "antd";
 import { generateNewsList } from "./utils";
 
-const Nodata = () => <h2>Nothing to show</h2>;
+const Nodata = () => <Empty />;
 
 const NewsList = ({ news, isFetchingNews, handleReadMoreClick }) => {
   return (
