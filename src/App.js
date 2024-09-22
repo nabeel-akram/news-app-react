@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Layout } from "antd";
+import Routes from "./components/routes/Routes";
+import { useReducer } from "react";
+import {
+  NewsReducer,
+  initialState,
+  newsContext,
+} from "./components/news/reducer/news.reducer";
+const { Header, Content } = Layout;
 
 function App() {
+  const [state, dispatch] = useReducer(NewsReducer, initialState);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout className="main-layout">
+      <Header className="header">
+        <h1 className="zero-margin">News</h1>
+      </Header>
+      <Content style={{ height: "100%" }}>
+        <newsContext.Provider value={{ ...state, dispatch }}>
+          <Routes />
+        </newsContext.Provider>
+      </Content>
+    </Layout>
   );
 }
 
