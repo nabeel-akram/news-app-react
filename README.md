@@ -21,7 +21,7 @@ This script is configured to run mock server and the react app concurrently
 - Handles `GET` method to return paginated news data
 - Processes search queries and filters news data based on matching titles and content in the news body
 
-### App is architected in the following manner:
+### App is structured as follows::
 
 - File and folder structure is designed with scalability in mind
 - Code is organized by features, with news being the current focus
