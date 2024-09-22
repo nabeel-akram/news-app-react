@@ -6,20 +6,20 @@ import React, {
   useState,
 } from "react";
 import NewsList from "./newsList/NewsList";
-import Button from "../common/Button";
+import Button from "../common/button/Button";
 import { useNavigate } from "react-router-dom";
 import SaerchBar from "./searchBar/SearchBar";
-import { newsContext } from "./reducer/news.reducer";
+import { NewsContext } from "./reducer/news.reducer";
 import { setSelectedNews, resetState } from "./reducer/news.actions";
 import { fetchNews } from "./api/news.api";
-import Spinner from "../common/Spinner";
+import Spinner from "../common/spinner/Spinner";
 
 const NewsHomepage = () => {
   const firstRender = useRef(true);
   const navigate = useNavigate();
   const [searchInput, setSearchInput] = useState("");
   const { news, currentPage, dispatch, isFetchingNews, totalPages } =
-    useContext(newsContext);
+    useContext(NewsContext);
 
   const handleFetchNews = useCallback(
     ({ currentPage, searchInput = "", append = false }) => {
@@ -29,8 +29,8 @@ const NewsHomepage = () => {
   );
 
   useEffect(() => {
-    !news.length && handleFetchNews({ currentPage, append: true });
-  }, [handleFetchNews]);
+    news.length === 0 && handleFetchNews({ currentPage, append: true });
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -46,7 +46,7 @@ const NewsHomepage = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [searchInput]);
+  }, [searchInput, dispatch, handleFetchNews]);
 
   const handleReadMoreClick = (newsItem) => {
     dispatch(setSelectedNews(newsItem));
@@ -73,7 +73,7 @@ const NewsHomepage = () => {
       {isFetchingNews ? (
         <Spinner />
       ) : (
-        currentPage <= totalPages && (
+        currentPage < totalPages && (
           <Button
             customClass="loadmore-button"
             text="Load more"

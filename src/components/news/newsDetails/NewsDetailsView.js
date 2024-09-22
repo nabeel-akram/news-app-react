@@ -1,21 +1,21 @@
 import { useContext, useEffect } from "react";
-import { newsContext } from "../reducer/news.reducer";
+import { NewsContext } from "../reducer/news.reducer";
 import { useNavigate } from "react-router-dom";
 import { Image, Typography } from "antd";
 import { formatDate } from "../newsList/utils";
-import Button from "../../common/Button";
+import Button from "../../common/button/Button";
 
 const { Text } = Typography;
 
 const NewsDetailsView = () => {
-  const { selectedNews } = useContext(newsContext);
+  const { selectedNews } = useContext(NewsContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (typeof selectedNews.id === "undefined") {
       navigate("/news");
     }
-  }, []);
+  }, [navigate, selectedNews.id]);
 
   return (
     <div style={{ padding: "24px" }}>

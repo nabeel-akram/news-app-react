@@ -1,0 +1,24 @@
+.readmore-button {
+    background-color: #009baa;
+    margin-top: 10px;
+    font-weight: 500;
+    &:hover {
+      color: #009baa !important;
+      background-color: white !important;
+      border: 1px solid #009baa;
+  
+    }
+  }
+  
+  .loadmore-button {
+    background-color: white;
+    color: #009baa;
+    margin-top: 10px;
+    border: 1px solid #009baa;
+    font-weight: 500;
+  
+    &:hover {
+      color: white !important;
+      background-color: #009baa !important;
+    }
+  }

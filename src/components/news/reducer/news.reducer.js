@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext } from "react";
 import {
   SET_SELECTED_NEWS,
   RESET_STATE,
@@ -35,6 +35,7 @@ export const NewsReducer = (state = initialState, action) => {
       };
 
     case FETCH_NEWS_FAILURE:
+      console.log(action.error);
       return { ...state, isFetchingNews: false, error: action.error };
 
     case SET_SELECTED_NEWS:
@@ -48,10 +49,4 @@ export const NewsReducer = (state = initialState, action) => {
   }
 };
 
-export const newsContext = createContext(null);
-
-export const useNewsReducer = (reducer, initialState) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  return [state, dispatch];
-};
+export const NewsContext = createContext(null);

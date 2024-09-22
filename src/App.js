@@ -4,8 +4,8 @@ import Routes from "./components/routes/Routes";
 import { useReducer } from "react";
 import {
   NewsReducer,
+  NewsContext,
   initialState,
-  newsContext,
 } from "./components/news/reducer/news.reducer";
 const { Header, Content } = Layout;
 
@@ -18,9 +18,9 @@ function App() {
         <h1 className="zero-margin">News</h1>
       </Header>
       <Content style={{ height: "100%" }}>
-        <newsContext.Provider value={{ ...state, dispatch }}>
+        <NewsContext.Provider value={{ ...state, dispatch }}>
           <Routes />
-        </newsContext.Provider>
+        </NewsContext.Provider>
       </Content>
     </Layout>
   );

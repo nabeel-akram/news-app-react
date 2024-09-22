@@ -1,5 +1,5 @@
 import { Card, Image } from "antd";
-import Button from "../../common/Button";
+import Button from "../../common/button/Button";
 
 export const formatDate = (dateStr) => {
   const date = new Date(dateStr);

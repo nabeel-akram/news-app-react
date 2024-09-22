@@ -2,10 +2,10 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import NewsDetailsView from "../news/newsDetails/NewsDetailsView";
 import NewsHomepage from "../news/NewsHomepage";
 import { useContext } from "react";
-import { newsContext } from "../news/reducer/news.reducer";
+import { NewsContext } from "../news/reducer/news.reducer";
 
 const AppRoutes = () => {
-  const { selectedNews } = useContext(newsContext);
+  const { selectedNews } = useContext(NewsContext);
   return (
     <BrowserRouter>
       <Routes>

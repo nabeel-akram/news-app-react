@@ -1,5 +1,5 @@
 import "./searchBar.css";
-import { Input, Tooltip } from "antd";
+import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 
 const SaerchBar = ({ searchInput, setSearchInput }) => {
@@ -7,11 +7,7 @@ const SaerchBar = ({ searchInput, setSearchInput }) => {
     <>
       <Input
         className="search-bar"
-        suffix={
-          <Tooltip title="Search">
-            <SearchOutlined className="search-icon" />
-          </Tooltip>
-        }
+        suffix={<SearchOutlined className="search-icon" />}
         placeholder="Enter keywords"
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
