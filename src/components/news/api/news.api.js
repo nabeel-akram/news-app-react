@@ -19,10 +19,7 @@ export const fetchNews = async (
     if (!response.ok) throw new Error("Failed to fetch");
 
     const data = await response.json();
-    const { news, totalCount, currentPage, totalPages } = data;
-    dispatch(
-      fetchNewsSuccess({ news, totalCount, currentPage, totalPages, append })
-    );
+    dispatch(fetchNewsSuccess({ ...data, append }));
   } catch (error) {
     dispatch(fetchNewsFailure(error.message));
   }
